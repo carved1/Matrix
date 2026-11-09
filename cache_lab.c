@@ -60,11 +60,14 @@ void free_matrix() {
 long long traverse_row_major() {
     long long sum = 0;
     
-    // ============================================
-    // TODO: Implement row-major traversal
     // Visit elements in order: [0][0], [0][1], [0][2], ... [1][0], [1][1], ...
-    // ============================================
-    
+    // Outer loop walks rows; inner loop walks consecutive columns in that row.
+    for (int i = 0; i < current_size; i++) {
+        for (int j = 0; j < current_size; j++) {
+            sum += matrix[i][j];
+        }
+    }
+
     return sum;
 }
 
@@ -79,11 +82,14 @@ long long traverse_row_major() {
 long long traverse_column_major() {
     long long sum = 0;
     
-    // ============================================
-    // TODO: Implement column-major traversal
     // Visit elements in order: [0][0], [1][0], [2][0], ... [0][1], [1][1], ...
-    // ============================================
-    
+    // Outer loop walks columns; inner loop walks down the rows of that column.
+    for (int j = 0; j < current_size; j++) {
+        for (int i = 0; i < current_size; i++) {
+            sum += matrix[i][j];
+        }
+    }
+
     return sum;
 }
 
